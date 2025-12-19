@@ -6,7 +6,7 @@ function Services() {
   const services = DataLoader.getServices();
   
   return (
-    <div className="min-h-screen bg-linear-to-b from-rose-50 to-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header name="Nuestros Servicios" />
       
       <section className="max-w-6xl mx-auto px-4 py-16">
@@ -14,7 +14,7 @@ function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-rose-100"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-accent/50 transition-all duration-300 border border-accent/20"
             >
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Section */}
@@ -24,7 +24,6 @@ function Services() {
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-rose-900/30 to-transparent"></div>
                 </div>
 
                 {/* Content Section */}
@@ -53,7 +52,7 @@ function Services() {
                             key={featureIndex}
                             className="flex items-start text-gray-700"
                           >
-                            <RxRadiobutton className="text-primary text-xl mr-3 mt-1 flex-shrink-0" />
+                            <RxRadiobutton className="text-accent text-xl mr-3 mt-1 flex-shrink-0" />
                             <span className="text-base leading-relaxed">{feature}</span>
                           </li>
                         ))}
@@ -69,7 +68,7 @@ function Services() {
         {/* CTA Button */}
         <div className="text-center mt-12">
           <a
-            className="inline-block bg-primary text-light px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="inline-block bg-primary text-light px-10 py-4 rounded-full font-bold text-lg hover:text-accent hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             href="/contact"
           >
             Consultar ahora

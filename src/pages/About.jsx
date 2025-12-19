@@ -6,7 +6,7 @@ function About() {
   return (
     <>
       <Header name="Nosotros" />
-      <section className="max-w-6xl mx-auto my-12 p-8 bg-white rounded-2xl border-b-4 border-primary shadow-xl">
+      <section className="max-w-6xl mx-auto my-12 p-8 bg-white rounded-2xl shadow-xl">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Content Column */}
           <div className="space-y-10">
@@ -52,7 +52,7 @@ function About() {
                   alt="About Us"
                   className="w-full h-auto rounded-2xl transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
               </div>
             )}
           </div>

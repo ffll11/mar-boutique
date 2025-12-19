@@ -6,14 +6,14 @@ function Hero() {
   const testimonials = DataLoader.getTestimonials();
   
   return (
-    <div className="min-h-screen bg-light overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Header */}
       <div className="text-center pt-20 pb-16 px-4">
         <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-dark mb-6 leading-tight">
             Bienvenidos a{" "}
-            <span className="bg-primary bg-clip-text text-transparent">
-              Mar<span className="text-gray-400">Atelier</span>
+            <span className="bg-accent bg-clip-text text-transparent">
+              Mar<span >Atelier</span>
             </span>
           </h1>
           <p className="mt-6 text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -22,7 +22,7 @@ function Hero() {
           </p>
           <a
             href="https://wa.me/34600123456"
-            className="inline-block mt-8 bg-primary from-rose-600 to-pink-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="inline-block mt-8 bg-primary text-light px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:text-accent transition-all duration-300"
           >
             Agenda tu cita
           </a>
@@ -38,7 +38,7 @@ function Hero() {
           {services.slice(0, 3).map((service, index) => (
             <div 
               key={index} 
-              className="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-accent/50 transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="relative overflow-hidden h-64">
                 <img 
@@ -46,7 +46,7 @@ function Hero() {
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-accent to-transparent opacity-0 group-hover:accent transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-dark mb-3">
@@ -70,7 +70,7 @@ function Hero() {
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:shadow-accent/50 transition-all duration-300 border border-gray-100"
             >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (

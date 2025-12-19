@@ -23,7 +23,7 @@ function Navbar() {
             <FiScissors size={24} className="text-primary" />
 
           </span>
-            <h1 className="text-xl font-elegant font-medium text-light">
+            <h1 className="text-xl font-elegant font-semibold text-light">
               <span className="font-elegant ">Mar</span>Atelier
             </h1>
           </Link>
