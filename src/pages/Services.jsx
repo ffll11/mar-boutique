@@ -7,7 +7,7 @@ function Services() {
   
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header name="Nuestros Servicios" />
+      <Header name="Servicios" />
       
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="space-y-8">
@@ -29,10 +29,10 @@ function Services() {
                 {/* Content Section */}
                 <div className="p-8 flex flex-col justify-between bg-linear-to-br from-white to-rose-50/30">
                   <div>
-                    <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                    <h3 className="text-3xl font-bold text-dark mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                    <p className="text-dark text-lg leading-relaxed mb-6">
                       {service.description}
                     </p>
 
@@ -52,7 +52,7 @@ function Services() {
                             key={featureIndex}
                             className="flex items-start text-gray-700"
                           >
-                            <RxRadiobutton className="text-accent text-xl mr-3 mt-1 flex-shrink-0" />
+                            <RxRadiobutton className="text-accent text-xl mr-3 mt-1 " />
                             <span className="text-base leading-relaxed">{feature}</span>
                           </li>
                         ))}

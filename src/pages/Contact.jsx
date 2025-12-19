@@ -51,7 +51,7 @@ const serviceList = DataLoader.getServices();
                     className="inline-block mr-2 text-primary"
                     size={24}
                   />
-                  <div>
+                  <div className="w-full text-dark">
                     <p className="text-lg">{address.city}</p>
                     <p className="text-lg">{address.street}</p>
                     <p className="text-lg">{address.zip}</p>
@@ -81,10 +81,10 @@ const serviceList = DataLoader.getServices();
             )}
             {email && email.length > 0 && (
               <div className="group transform hover:scale-105 transition-all duration-300">
-                <div className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl ">
+                <div className="p-6 bg-light rounded-2xl shadow-md hover:shadow-xl ">
                   <div className="flex items-start gap-4">
                     <BiMailSend className="text-primary mt-1" size={32} />
-                    <div className="w-full">
+                    <div className="w-full text-dark">
                       {email.map((emailAddress, index) => (
                         <a
                           key={index}

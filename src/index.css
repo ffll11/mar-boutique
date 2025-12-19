@@ -39,14 +39,14 @@
 
 @theme {
   --color-*: initial;
-  --color-primary: #ba55d3;       /* Stronger purple for better contrast */
+  --color-primary: #D372FC;       /* Stronger purple for better contrast */
   --color-secondary: #F8D7FF;     /* Supporting purple */
   --color-accent: #F1DD00;        /* Pink accent that pops */
   
   /* Neutral Scale (3 shades only) */
   --color-light: #f9f9f9;         /* For backgrounds */
   --color-gray: #6b7280;          /* For secondary text */
-  --color-dark: #111827;          /* For primary text */
+  --color-dark: #76617D;          /* For primary text */
   
   /* Functional Colors (2 states) */
   --color-success: #10b981;       /* Green for success */

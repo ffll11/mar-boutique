@@ -11,16 +11,17 @@ function About() {
           {/* Content Column */}
           <div className="space-y-10">
             <div className="transform hover:scale-[1.02] transition-transform duration-300">
-              <h3 className="text-3xl font-bold mb-4 text-dark border-l-4 border-primary pl-4">
+              <h3 className="text-3xl font-bold mb-4 text-dark  pl-4">
                 Nuestra Historia
               </h3>
               <p className="text-base text-dark leading-7">
                 {aboutInfo.history}
               </p>
             </div>
+            <div className="border border-accent "></div>
 
             <div className="transform hover:scale-[1.02] transition-transform duration-300">
-              <h3 className="text-3xl font-bold mb-4 text-dark border-l-4 border-primary pl-4">
+              <h3 className="text-3xl font-bold mb-4 text-dark  pl-4">
                 Misión y Visión
               </h3>
               <div className="space-y-4">
@@ -32,9 +33,10 @@ function About() {
                 </p>
               </div>
             </div>
+            <div className="border border-accent "></div>
 
             <div className="transform hover:scale-[1.02] transition-transform duration-300">
-              <h3 className="text-3xl font-bold mb-4 text-dark border-l-4 border-primary pl-4">
+              <h3 className="text-3xl font-bold mb-4 text-dark  pl-4">
                 Valores
               </h3>
               <p className="text-base text-dark leading-7">
