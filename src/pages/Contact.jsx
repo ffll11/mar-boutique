@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DataLoader from "../utils/dataLoader";
-import { BsHouse } from "react-icons/bs";
-import {
-  BiPhone,
-  BiSolidBuildingHouse,
-  BiMessageAltDetail,
-  BiMailSend,
-} from "react-icons/bi";
+import { BiPhone, BiSolidBuildingHouse, BiMailSend } from "react-icons/bi";
+
 import Header from "../components/Header";
 
 function Contact() {
@@ -15,9 +10,9 @@ function Contact() {
   const address = contactInfo.address;
   const phone = contactInfo.phoneNumbers;
   const email = contactInfo.emails;
-const serviceList = DataLoader.getServices();
+  const serviceList = DataLoader.getServices();
 
-  const formData = {
+  const formInitialData = {
     name: "",
     email: "",
     phone: "",
@@ -25,15 +20,49 @@ const serviceList = DataLoader.getServices();
     message: "",
   };
 
-  const handleChange = (e) => {
-    formData[e.target.name] = e.target.value;
-  }
+  const [formData, setFormData] = useState(formInitialData);
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    setError(null);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    alert("Formulario enviado!");
-  }
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        "https://webhook.site/08e5e06b-c09c-48ac-b800-69340288d3c2",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: formData }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+    } catch (err) {
+      setError("Error al enviar el formulario. Por favor, inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -107,6 +136,7 @@ const serviceList = DataLoader.getServices();
             <div className="border-l-inherit border-accent mb-8 w-20"></div>
 
             <div className="bg-light rounded-2xl p-8 border border-gray-200 shadow-md">
+              {loading && <p className="text-dark mb-4">Enviando...</p>}
               <div className="space-y-6">
                 <div>
                   <input
@@ -116,6 +146,7 @@ const serviceList = DataLoader.getServices();
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Nombre y apellido"
+                    required
                   />
                 </div>
 
@@ -127,6 +158,7 @@ const serviceList = DataLoader.getServices();
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Correo electrónico"
+                    required
                   />
                 </div>
 
@@ -138,6 +170,8 @@ const serviceList = DataLoader.getServices();
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Teléfono"
+                    required
+                    maxLength={9}
                   />
                 </div>
 
@@ -147,12 +181,13 @@ const serviceList = DataLoader.getServices();
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
+                    required
                   >
                     <option value="" disabled>
                       Seleccione un servicio
                     </option>
                     {serviceList.map((service, index) => (
-                      <option key={index} value={service.title}>
+                      <option key={index} value={service.title} required>
                         {service.title}
                       </option>
                     ))}
@@ -185,6 +220,9 @@ const serviceList = DataLoader.getServices();
                   Enviar mensaje
                 </button>
               </div>
+              {error && (
+                <p className="text-red-500 mt-4 font-medium">{error}</p>
+              )}
             </div>
           </div>
         </div>
